@@ -1,0 +1,261 @@
+/* Paleta de Cores baseada na Logo do CEM 1 Paranoá */
+:root {
+    --azul-escuro: #1c4273;
+    --azul-claro: #2692c9;
+    --verde: #43a947;
+    --vermelho: #d9381e;
+    --bg-claro: #fbf8f3;
+    --branco: #ffffff;
+    --texto-escuro: #222222;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-claro);
+    color: var(--texto-escuro);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita barras de rolagem indesejadas nas animações */
+}
+
+/* Cabeçalho */
+header {
+    background: linear-gradient(-45deg, #1c4273, #2692c9, #1c4273);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite; /* Gradiente que se move suavemente ao fundo */
+    color: var(--branco);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border-bottom: 5px solid var(--verde);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.logo-container img {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-container img:hover {
+    transform: scale(1.08) rotate(2deg); /* Logo ganha vida ao passar o mouse */
+}
+
+nav {
+    margin-top: 1.5rem;
+}
+
+nav a {
+    color: var(--branco);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+/* Linha dinâmica sob os links do menu */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--verde);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: var(--branco);
+}
+
+/* Containers de Conteúdo */
+.container {
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    background: var(--branco);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* Sombra mais profunda no hover */
+}
+
+h2 {
+    color: var(--azul-escuro);
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--azul-claro);
+    padding-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    background-color: var(--vermelho);
+    color: var(--branco);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 50px; /* Botão mais arredondado e moderno */
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(217, 56, 30, 0.3);
+}
+
+.btn:hover {
+    background-color: #b82e18;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(217, 56, 30, 0.5);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.center-btn {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Seção de Fotos (Grid) */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.foto-card {
+    background: #eee;
+    height: 220px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-weight: bold;
+    border: 2px dashed var(--azul-claro);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.foto-card:hover {
+    background: #e2e8f0;
+    transform: translateY(-5px);
+    border-color: var(--azul-escuro);
+    color: var(--azul-escuro);
+}
+
+/* Seção de Relatos */
+.relatos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.relato-box {
+    border-left: 5px solid var(--verde);
+    background: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    transition: transform 0.3s ease;
+}
+
+.relato-box:hover {
+    transform: translateX(5px); /* Desloca sutilmente para o lado */
+}
+
+.relato-box em {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--azul-escuro);
+    font-weight: bold;
+}
+
+/* Tabela de Horários */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    transition: background-color 0.2s;
+}
+
+th {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    border: none;
+}
+
+td {
+    border-bottom: 1px solid #eee;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+tr:hover td {
+    background-color: rgba(38, 146, 201, 0.1); /* Ilumina a linha da tabela sob o mouse */
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 4rem;
+    border-top: 5px solid var(--azul-claro);
+}
+
+/* --- CLASSES DE ANIMAÇÃO PARA O JAVASCRIPT --- */
+.animar-entrada {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animar-entrada.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
