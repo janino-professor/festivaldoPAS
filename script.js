@@ -1,26 +1,77 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Seleciona todos os elementos que possuem a classe de animação
+    
+    // ==========================================
+    // 1. LÓGICA DE FOTOS ALEATÓRIAS (NOVO)
+    // ==========================================
+    
+    // Lista com o nome exato dos arquivos de imagem dentro da sua pasta "fotos/"
+    const bancoDeFotos = [
+        "1.jpg",
+        "2.jpg",
+        "3.jpg",
+        "4.jpg",
+        "5.jpg",
+        "6.jpg",
+        "8.jpg",
+        "9.jpg",
+        "10.jpg",
+        "11.jpg",
+        "12.jpg",
+        
+        // Professor, adicione os outros nomes de arquivos da sua pasta aqui embaixo seguindo o padrão:
+        
+    ];
+
+    const containerGaleria = document.getElementById("galeria-fotos");
+
+    if (containerGaleria) {
+        // Copia a lista original para não alterá-la diretamente
+        let fotosEmbaralhadas = [...bancoDeFotos];
+        
+        // Algoritmo de embaralhamento (Fisher-Yates)
+        for (let i = fotosEmbaralhadas.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [fotosEmbaralhadas[i], fotosEmbaralhadas[j]] = [fotosEmbaralhadas[j], fotosEmbaralhadas[i]];
+        }
+
+        // Seleciona as 3 primeiras fotos do resultado embaralhado
+        const fotosSorteadas = fotosEmbaralhadas.slice(0, 3);
+
+        // Cria o HTML dinamicamente e injeta na galeria
+        fotosSorteadas.forEach(nomeFoto => {
+            const card = document.createElement("div");
+            card.classList.add("foto-card");
+            
+            const img = document.createElement("img");
+            img.src = `fotos/${nomeFoto}`;
+            img.alt = "Registro de encontros do Festival do PAS";
+            img.classList.add("foto-galeria");
+
+            card.appendChild(img);
+            containerGaleria.appendChild(card);
+        });
+    }
+
+    // ==========================================
+    // 2. CONFIGURAÇÃO DO INTERSECTION OBSERVER
+    // ==========================================
     const elementosAnimados = document.querySelectorAll(".animar-entrada");
 
-    // Configuração do Intersection Observer (detecta quando o elemento aparece na tela)
     const observerOpcoes = {
-        root: null, // usa a janela de visualização do navegador (viewport)
-        threshold: 0.15, // ativa a animação quando 15% do elemento estiver visível
-        rootMargin: "0px 0px -50px 0px" // ativa um pouco antes do elemento chegar no meio da tela
+        root: null, 
+        threshold: 0.15, 
+        rootMargin: "0px 0px -50px 0px" 
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Adiciona a classe que executa a transição do CSS
                 entry.target.classList.add("visivel");
-                // Para de observar o elemento após ele já ter aparecido
                 observer.unobserve(entry.target);
             }
         });
     }, observerOpcoes);
 
-    // Diz ao observador para monitorar cada uma das seções
     elementosAnimados.forEach(elemento => {
         observer.observe(elemento);
     });
