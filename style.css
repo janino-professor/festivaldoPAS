@@ -34,6 +34,15 @@ header {
     border-bottom: 5px solid var(--verde);
 }
 
+.header-subtitle {
+    color: var(--branco);
+}
+
+.link-base44 {
+    color: var(--verde);
+    text-decoration: underline;
+}
+
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -64,6 +73,10 @@ nav a {
     position: relative;
     padding-bottom: 5px;
     transition: color 0.3s;
+}
+
+nav a.nav-active {
+    border-bottom: 3px solid var(--verde);
 }
 
 /* Linha dinâmica sob os links do menu */
@@ -267,4 +280,96 @@ footer {
 
 .foto-card:hover .foto-galeria {
     transform: scale(1.04);
+}
+
+/* --- ESTILOS ADICIONADOS DE REGRAS, TABELAS E CARDS DE INSCRICÃO --- */
+.regras-box {
+    background-color: #fff8e1;
+    border-left: 5px solid var(--vermelho);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.regras-box h3 {
+    color: var(--vermelho);
+    margin-bottom: 0.8rem;
+}
+
+.regras-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.regras-list li {
+    position: relative;
+    padding-left: 1.8rem;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+}
+
+.regras-list li::before {
+    content: "📌";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.horarios-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.horario-card {
+    background: #f0f4f8;
+    border-top: 4px solid var(--azul-claro);
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.horario-card h4 {
+    color: var(--azul-escuro);
+    font-size: 1.1rem;
+}
+
+.horario-card p {
+    margin-bottom: 0;
+    font-weight: bold;
+    color: var(--verde);
+}
+
+.oficina-link {
+    display: inline-block;
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: 0.3rem;
+}
+
+.oficina-link:hover {
+    background-color: var(--azul-escuro);
+    transform: translateY(-2px);
+}
+
+.status-pendente {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #666;
+    padding: 0.4rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
 }
