@@ -6,21 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Lista com o nome exato dos arquivos de imagem dentro da sua pasta "fotos/"
     const bancoDeFotos = [
-        "1.jpeg",
-        "2.jpeg",
-        "3.jpeg",
-        "4.jpeg",
-        "5.jpeg",
-        "6.jpeg",
-        "8.jpeg",
-        "9.jpeg",
+        "01.jpeg",
+        "02.jpeg",
+        "03.jpeg",
+        "04.jpeg",
+        "05.jpeg",
+        "06.jpeg",
+        "07.jpeg",
+        "08.jpeg",
+        "09.jpeg",
         "10.jpeg",
         "11.jpeg",
         "12.jpeg",
-        "13.jpeg",
-        
-        // Professor, adicione os outros nomes de arquivos da sua pasta aqui embaixo seguindo o padrão:
-        
+        "13.jpeg"        
+           
     ];
 
     const containerGaleria = document.getElementById("galeria-fotos");
